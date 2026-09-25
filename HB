@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Novia Hermosa 💖</title>
+    <!-- Fuentes premium idénticas a tus imágenes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CONFIGURACIÓN BASE ESTILO OSCURO / MORADO NEÓN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0614; /* Fondo místico ultra oscuro */
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); transform: scale(1); }
+            100% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.7); transform: scale(1.05); }
+        }
+
+            /* EFECTO MATRIX DE INTRODUCCIÓN CON ESTILO TIERNO PREMIUM */
+        #intro-matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #intro-number-display {
+            font-family: 'Playfair Display', serif; /* Tu tipografía principal elegante */
+            font-style: italic; /* Cursiva tierna idéntica a tus títulos */
+            font-size: 11rem; /* Tamaño más estilizado y menos agresivo */
+            font-weight: 600;
+            color: #fff6f8; /* Tono blanco crema más suave */
+            /* Resplandor neón difuminado y terso, sin saturar de luz la pantalla */
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.4), 0 0 25px rgba(236, 72, 153, 0.6), 0 0 45px rgba(147, 51, 234, 0.3);
+            z-index: 2;
+            position: relative;
+            user-select: none;
+            animation: introPulse 1.2s infinite alternate ease-in-out;
+        }
+
+        @keyframes introPulse {
+            0% { transform: scale(0.97); text-shadow: 0 0 10px rgba(236, 72, 153, 0.4), 0 0 20px rgba(236, 72, 153, 0.5); }
+            100% { transform: scale(1.03); text-shadow: 0 0 15px rgba(236, 72, 153, 0.6), 0 0 30px rgba(236, 72, 153, 0.7), 0 0 50px rgba(255, 0, 127, 0.3); }
+        }
+
+
+
+        /* Luces ambientales en las esquinas traseras */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.25) 0%, rgba(0,0,0,0) 70%);
+            top: -10%;
+            left: -10%;
+            z-index: 1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, rgba(0,0,0,0) 70%);
+            bottom: -10%;
+            right: -10%;
+            z-index: 1;
+        }
+
+        /* === FONDO DE CORAZONES FLOTANTES CAYENDO === */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .heart-particle {
+            position: absolute;
+            color: rgba(236, 72, 153, 0.4);
+            font-size: 15px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+
+             /* === ESTRUCTURA DE LAS INTERFACES === */
+        .screen {
+            position: absolute;
+            width: 95%;
+            max-width: 1200px; /* ¡Expandido para que se vea gigante y estético en PC! */
+            text-align: center;
+            z-index: 10;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        /* Ajuste extra para que las cajas del tiempo no se peguen */
+        .countdown-container {
+            display: flex;
+            gap: 25px; /* Más espacio elegante entre los bloques */
+            margin: 30px 0;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tipografías de los títulos */
+        h1.serif-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-style: italic;
+            font-weight: 400;
+            color: #fff6f8;
+            text-shadow: 0 0 20px rgba(255, 230, 235, 0.2);
+            margin-bottom: 5px;
+        }
+
+        .small-tag {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 25px;
+        }
+
+        .sub-message {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #fda4af;
+            font-size: 1.05rem;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Botones Premium con Bordes Redondeados Capsulares */
+        .btn-capsule {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff0f2;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 12px 35px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-capsule:hover {
+            background: #fff;
+            color: #0d0614;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* === INTERFAZ 1: CUENTA REGRESIVA === */
+        .countdown-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            width: 85px;
+            height: 85px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .time-box span.num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .time-box span.label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 2px;
+        }
+
+        /* === INTERFAZ 2: CAJA REGALO Y POLAROIDS OSCILANTES === */
+        .gift-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Imagen del Hámster Animado Transparente Agrandado para PC */
+        .hamster-gift-icon {
+            width: 300px; /* Tamaño ampliado ideal para pantallas de laptop/computadora */
+            height: auto;
+            z-index: 20;
+            animation: bounce 1.5s infinite alternate ease-in-out; 
+            /* Mantiene el resplandor rosa envolvente */
+            filter: drop-shadow(0 0 35px rgba(236, 72, 153, 0.5)); 
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%),
+                        linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+        }
+
+    
+        @keyframes bounce {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-10px) scale(1.05); }
+        }
+
+                /* Fotos tipo Polaroid optimizadas y agrandadas para pantallas de PC/Laptop */
+        .polaroid {
+            position: absolute;
+            background: #ffffff;
+            padding: 10px 10px 28px 10px;
+            width: 165px; /* ¡Fotos un 50% más grandes y visibles! */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border-radius: 4px;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 140px; /* Proporción ideal para el nuevo tamaño */
+            object-fit: cover;
+        }
+
+         /* Posiciones máximas: fotos totalmente entrelazadas en el centro */
+        .p1 { left: 70px; top: 10px; z-index: 5; animation: rockLeft 3s infinite ease-in-out alternate; }
+        .p2 { left: 165px; top: 110px; z-index: 5; animation: rockRight 3.5s infinite ease-in-out alternate; }
+        .p3 { right: 70px; top: 10px; z-index: 5; animation: rockRight 2.8s infinite ease-in-out alternate; }
+        .p4 { right: 165px; top: 115px; z-index: 5; animation: rockLeft 3.2s infinite ease-in-out alternate; }
+
+
+        @keyframes rockLeft { 0% { transform: rotate(-20deg); } 100% { transform: rotate(20deg); } }
+        @keyframes rockRight { 0% { transform: rotate(20deg); } 100% { transform: rotate(-20deg); } }
+
+        /* === INTERFAZ 3: CARTA CRISTALINA CON APARICIÓN DE LÍNEAS === */
+            
+                /* Carta con tamaño amplio original y sistema de lectura invisible para PC */
+        .letter-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 40px;
+            width: 100%;
+            max-width: 750px; /* Recupera su ancho grande original para aprovechar los lados */
+            max-height: 520px; /* Altura generosa para que el texto respire con elegancia */
+            overflow-y: auto;  /* Mantiene activa la función de subir y bajar con la rueda del mouse */
+            text-align: justify;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            margin-top: 15px;
+            position: relative;
+            
+            /* Oculta la barra de desplazamiento en navegadores como Firefox e Internet Explorer */
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+        }
+
+        /* Oculta por completo la barra de movimiento fucsia en Chrome, Safari y Edge */
+        .letter-container::-webkit-scrollbar {
+            display: none; /* ¡Hace que la barra sea 100% invisible! */
+            width: 0px;
+            background: transparent;
+        }
+
+        .letter-line {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .letter-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        /* === MOTOR VISUAL DEL CARRUSEL 3D COVERFLOW REAL === */
+        .carousel-3d-container {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px; /* Activa la profundidad tridimensional en el navegador */
+            overflow: visible;
+            margin-top: 10px;
+        }
+
+        .carousel-3d-track {
+            position: relative;
+            width: 240px;
+            height: 320px;
+            transform-style: preserve-3d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+                .card-3d {
+            position: absolute;
+            width: 240px;
+            height: 320px;
+            background: #ffffff; /* Fondo blanco liso estilo polaroid */
+            border-radius: 24px; /* Bordes redondeados más curvos y elegantes */
+            padding: 12px 12px 45px 12px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 15px rgba(236, 72, 153, 0.15); /* Sombra intensa combinada con un halo neón rosa muy suave */
+            backface-visibility: hidden;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, filter 0.6s ease;
+            user-select: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Asegura que la imagen de arriba respete la curvatura de las esquinas */
+        }
+
+              .card-3d img {
+            width: 100%;
+            height: 245px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 16px; /* Curvatura interna proporcional */
+            pointer-events: none;
+        }
+
+
+        .card-3d p {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: #111111; /* Texto oscuro sobre el fondo blanco */
+            font-weight: 500;
+            padding: 0 15px;
+        }
+
+        .carousel-3d-controls {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .btn-arrow {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-arrow:hover {
+            background: #ffffff;
+            color: #0d0614;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+
+                /* === NUEVO BOTÓN DE REGALO PALPITANTE PREMIUM CORREGIDO === */
+        .btn-gift-pulse {
+            width: 90px;
+            height: 90px;
+            background: url('https://i.ibb.co/jP6Fwbw1/pink-pastel-gift-box-free-png.webp') center/contain no-repeat; /* Tu imagen rosa fija */
+            border: none;
+            cursor: pointer;
+            outline: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            animation: giftHeartbeat 1.4s infinite ease-in-out; /* Efecto palpitante continuo */
+            filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.5)); /* Resplandor neón rosa */
+        }
+
+        .btn-gift-pulse:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.7)); 
+        }
+
+        /* Animación de latido de corazón */
+        @keyframes giftHeartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.08); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.08); }
+            70% { transform: scale(1); }
+        }
+
+               /* Animación mágica de destello y revelado neón para la frase final */
+        @keyframes revealGlow {
+            0% { transform: scale(0.92); opacity: 0; filter: blur(6px); text-shadow: 0 0 0px rgba(255,215,0,0); }
+            50% { text-shadow: 0 0 45px rgba(255,215,0,0.95), 0 0 20px #ec4899; opacity: 0.8; transform: scale(1.03); }
+            100% { transform: scale(1); opacity: 1; filter: blur(0); text-shadow: 0 0 20px rgba(255,215,0,0.5); }
+        }
+
+        /* Luces de Casino parpadeantes para el borde de la ruleta */
+        @keyframes casinoLights {
+            0% { border-color: rgba(236, 72, 153, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 15px rgba(236, 72, 153, 0.2); }
+            50% { border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255, 215, 0, 0.4); }
+            100% { border-color: rgba(236, 72, 153, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 15px rgba(236, 72, 153, 0.2); }
+        }
+
+        /* Animación para que el corazón completo de imágenes lata con ternura */
+        @keyframes corazonLatido {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            14% { transform: translate(-50%, -50%) scale(1.04); }
+            28% { transform: translate(-50%, -50%) scale(1); }
+            42% { transform: translate(-50%, -50%) scale(1.04); }
+            70% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* ========================================================
+           CÓDIGO NUEVO: ADAPTACIÓN AUTOMÁTICA PARA CELULARES
+           ======================================================== */
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto !important; /* Permite deslizar hacia abajo en celular si falta espacio */
+            }
+            
+            .screen {
+                width: 95% !important;
+                padding: 10px !important;
+                box-sizing: border-box;
+                position: relative !important; /* Evita que se encimen elementos al hacer scroll */
+                min-height: 100vh !important;
+                justify-content: flex-start !important; /* Alinea arriba para dar espacio al scroll */
+                padding-top: 30px !important;
+            }
+
+            /* --- PANTALLA 1: CUENTA REGRESIVA --- */
+            #screen1 > div {
+                flex-direction: column !important; /* Pone el GIF arriba y el contador abajo */
+                align-items: center !important;
+                gap: 20px !important;
+            }
+
+            #screen1 div[style*="width: 280px"] {
+                width: 150px !important; /* Achica el GIF del conejo */
+            }
+
+            h1.serif-title {
+                font-size: 2.1rem !important; /* Títulos medianos para que no se corten */
+            }
+
+            .time-box {
+                width: 60px !important; /* Cajas de tiempo más compactas */
+                height: 60px !important;
+            }
+            
+            .time-box span.num {
+                font-size: 1.2rem !important;
+            }
+
+            /* --- PANTALLA 2: REGALO Y FOTOS POLAROID --- */
+            .gift-wrapper {
+                height: auto !important;
+                flex-direction: column !important;
+                gap: 15px !important;
+                margin-top: 20px !important;
+            }
+
+            .hamster-gift-icon {
+                width: 140px !important; /* Achica el hámster central */
+                margin-top: 10px !important;
+            }
+
+            .polaroid {
+                position: relative !important; /* Quita las coordenadas fijas para que no salgan de la pantalla */
+                left: 0 !important;
+                right: 0 !important;
+                top: 0 !important;
+                width: 130px !important;
+                margin: 0 auto !important;
+                animation: none !important; /* Desactiva la oscilación para que sea fácil verlas */
+            }
+            
+            #screen2 > div[style*="margin-top: 110px"] {
+                margin-top: 20px !important; /* Ajusta la separación del texto inferior */
+            }
+
+            /* --- PANTALLA 3: CARTA CRISTALINA --- */
+            .letter-container {
+                padding: 18px !important;
+                max-height: 340px !important;
+            }
+
+            #secret-trigger-container {
+                left: 0 !important; /* Centra el hámster y botón sorpresa al final del texto */
+                top: 0 !important;
+                margin-top: 20px !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* --- PANTALLA 4: CARRUSEL 3D --- */
+            .carousel-3d-container {
+                height: 420px !important; /* Más alto para que las fotos respiren en medio */
+                margin-top: 20px !important;
+                margin-bottom: 20px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .carousel-3d-track {
+                width: 230px !important; 
+                height: 310px !important;
+            }
+
+            .card-3d {
+                width: 230px !important; /* Tarjetas mucho más grandes y visibles en celular */
+                height: 310px !important;
+            }
+            
+            .card-3d img {
+                height: 235px !important; /* La imagen interna crece proporcionalmente */
+            }
+
+            /* Forzamos que la estructura de la Pantalla 4 se centre verticalmente en el móvil */
+            #screen4 {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important; /* Empuja todo el bloque al centro de la pantalla */
+                align-items: center !important;
+                min-height: 100svh !important;
+                padding: 20px 0 !important;
+            }
+
+            /* Ajuste para que el mensaje final y las flores no queden pegados abajo */
+            #final-birthday-msg-container {
+                margin-top: 30px !important;
+            }
+
+            /* --- PANTALLA 5: LA RULETA DE REGALOS --- */
+            #screen5 > div {
+                flex-direction: column !important; /* Pone la ovejita arriba de la ruleta */
+                gap: 15px !important;
+            }
+
+            #screen5 div[style*="width: 280px"] {
+                width: 120px !important; /* Reduce el tamaño de la oveja */
+            }
+
+            #resultado-numero {
+                font-size: 5rem !important; /* Reduce el tamaño del número gigante en la ruleta */
+                min-height: 90px !important;
+            }
+
+            /* --- PANTALLA 6: CLÍMAX FINAL --- */
+            #contenedor-corazon-fotos {
+                width: 90% !important;
+                height: 350px !important;
+                transform: translate(-50%, -40%) scale(0.5) !important; /* Encoge el corazón de fotos para que entre entero en el fondo */
+            }
+        }
+
+               /* === CONFIGURACIÓN ADICIONAL CUANDO EL CELULAR SE ROTA DE LADO (HORIZONTAL) === */
+        @media (max-width: 950px) and (orientation: landscape) {
+            html, body {
+                overflow-x: auto !important; /* Habilita arrastrar la pantalla a los lados */
+                overflow-y: auto !important; /* Habilita arrastrar la pantalla arriba y abajo */
+                height: auto !important;
+                width: auto !important;
+                min-height: 100vh;
+                position: relative;
+                
+                /* Oculta las barras grises en navegadores como Firefox */
+                scrollbar-width: none !important; 
+                -ms-overflow-style: none !important; 
+            }
+            
+            /* OCULTA POR COMPLETO LAS BARRAS EN CHROME, SAFARI Y NAVEGADORES DE CELULAR */
+            html::-webkit-scrollbar,
+            body::-webkit-scrollbar,
+            .screen::-webkit-scrollbar {
+                display: none !important;
+                width: 0px !important;
+                height: 0px !important;
+                background: transparent !important;
+            }
+            
+            .screen {
+                position: relative !important; 
+                display: none;
+                width: 100% !important;
+                min-width: 830px !important;  /* Forza un espacio ancho fijo para poder deslizar de izquierda a derecha */
+                height: auto !important;
+                min-height: 140vh !important; /* Forza espacio alto suficiente para deslizar de arriba a abajo */
+                padding-top: 30px !important;
+                padding-bottom: 80px !important;
+                box-sizing: border-box;
+                justify-content: flex-start !important;
+            }
+
+            .screen.active {
+                display: flex !important;
+            }
+
+            /* Mantiene estables las fotos y el hámster al mover la pantalla */
+            .gift-wrapper {
+                height: 250px !important;
+                margin-top: 40px !important;
+                margin-bottom: 40px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            /* Espaciado del texto inferior */
+            #screen2 > div[style*="margin-top: 110px"] {
+                margin-top: 60px !important; 
+            }
+
+            /* Permite scroll dentro de la carta sin romper el arrastre de la pantalla principal */
+            .letter-container {
+                max-height: 280px !important;
+                overflow-y: auto !important;
+            }
+        }
+
+
+
+        /* =========================================================
+           CORRECCIÓN DEFINITIVA DE SCROLL PARA CELULARES
+           ========================================================= */
+        html {
+            width: 100%;
+            min-height: 100%;
+            overflow-x: auto !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 768px) {
+            html,
+            body {
+                width: 100%;
+                min-width: 0 !important;
+                height: auto !important;
+                min-height: 100%;
+                overflow-x: auto !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            body {
+                display: block !important;
+                position: relative !important;
+                align-items: initial !important;
+                justify-content: initial !important;
+                overflow: visible !important;
+            }
+
+            /* Las pantallas ya no quedan atrapadas en un contenedor
+               de altura fija; el documento puede crecer y desplazarse. */
+            .screen,
+            .screen.active {
+                position: relative !important;
+                width: 100% !important;
+                max-width: none !important;
+                height: auto !important;
+                min-height: 100svh !important;
+                max-height: none !important;
+                margin: 0 auto !important;
+                overflow: visible !important;
+                flex-shrink: 0;
+                touch-action: pan-x pan-y !important;
+            }
+
+            /* Permite que los elementos grandes generen desplazamiento
+               horizontal cuando realmente sobresalen de la pantalla. */
+            .screen > * {
+                max-width: 100%;
+            }
+
+            .carousel-3d-container {
+                touch-action: pan-x pan-y !important;
+            }
+
+            .letter-container {
+                touch-action: pan-y !important;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* La pantalla final tenía overflow:hidden inline. */
+            #screen6 {
+                overflow: visible !important;
+                height: auto !important;
+                min-height: 100svh !important;
+            }
+
+            /* La introducción sí debe ocupar toda la pantalla y no
+               convertirse en parte del scroll. */
+            #intro-welcome-screen {
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100vw !important;
+                height: 100dvh !important;
+                overflow: hidden !important;
+                touch-action: none !important;
+            }
+        }
+
+        @media (max-width: 950px) and (orientation: landscape) {
+            html,
+            body {
+                width: 100%;
+                height: auto !important;
+                min-height: 100%;
+                overflow-x: auto !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .screen {
+                position: relative !important;
+                height: auto !important;
+                min-height: 100svh !important;
+                overflow: visible !important;
+            }
+        }
+
+    
+        /* =========================================================
+           AJUSTE DE LA PANTALLA 4: ACERCAR FELIZ CUMPLEAÑOS + FLORES
+           ========================================================= */
+        @media (min-width: 769px) {
+            #screen4 {
+                height: 100vh !important;
+                min-height: 0 !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                padding-top: 10px !important;
+                box-sizing: border-box !important;
+            }
+
+            #screen4 > .small-tag {
+                margin-bottom: 0 !important;
+            }
+
+            #screen4 .carousel-3d-container {
+                height: 370px !important;
+                margin-top: 0 !important;
+                flex-shrink: 0;
+            }
+
+            #final-birthday-msg-container {
+                margin-top: -5px !important;
+                flex-shrink: 0;
+            }
+        }
+
+</style>
+</head>
+
+
+<body>
+
+          <!-- === PANTALLA DE INTRODUCCIÓN: EFECTO MATRIX ROMÁNTICO TIKTOK === -->
+    <div id="intro-welcome-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #0d0614; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.8s ease-in-out; overflow: hidden;">
+        <canvas id="intro-matrix-canvas"></canvas>
+        <div id="intro-number-display">5</div>
+    </div>
+
+
+    <canvas id="fw-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"></canvas>
+
+    <!-- Capa de Corazones Flotantes (Común para todas las pantallas) -->
+    <div class="hearts-container" id="hearts-bg"></div>
+
+              <!-- === PANTALLA 1: CUENTA REGRESIVA PARALELA REVISADA === -->
+    <div class="screen active" id="screen1" style="max-width: 1200px; width: 100%; margin: 0 auto; position: relative;">
+        
+        <!-- CONTENEDOR EN PARALELO CON ALINEACIÓN ESTRICTA EQUILIBRADA -->
+        <div style="display: flex; flex-direction: row; align-items: stretch; justify-content: center; gap: 40px; width: 100%; max-width: 1000px; position: relative; margin-top: 10px; box-sizing: border-box;">
+            
+            <!-- 🐥 GIF DE LA IZQUIERDA -->
+            <div style="width: 280px; flex-shrink: 0; display: flex; border-radius: 32px; overflow: hidden; pointer-events: none;">
+                <img src="https://i.ibb.co/zV6GPzCn/conejoo.gif" alt="Conejo de la Torta" style="width: 100%; height: 100%; object-fit: cover; filter: drop-shadow(0 0 35px rgba(236, 72, 153, 0.6));">
+            </div>
+
+            <!-- ⏱️ ESTRUCTURA DEL CONTADOR A LA DERECHA -->
+            <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border-radius: 32px; padding: 40px 45px; flex-grow: 1; max-width: 620px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                
+                <!-- AQUÍ PEGASTE LA LÍNEA: Se alineará automáticamente en el centro superior del recuadro -->
+                <p class="small-tag" style="margin-top: -10px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 5px;">🥳 Contando las horas 🥳</p>
+
+                <h1 class="serif-title" style="font-size: 3.2rem; margin-bottom: 5px;">Tu Día Especial</h1>
+                <h1 class="serif-title" style="margin-top: -10px; margin-bottom: 5px;">está llegando 🎂</h1>
+                <p class="sub-message" style="margin-bottom: 25px; font-size: 1.1rem;">Algo Hermoso Te Espera ❤️</p>
+                
+                <!-- Cajas de tiempo originales -->
+                <div class="countdown-container" style="margin: 0 0 30px 0; display: flex; gap: 20px;">
+                    <div class="time-box"><span class="num" id="days">00</span><span class="label">Día</span></div>
+                    <div class="time-box"><span class="num" id="hours">00</span><span class="label">Hora</span></div>
+                    <div class="time-box"><span class="num" id="mins">00</span><span class="label">Minuto</span></div>
+                    <div class="time-box"><span class="num" id="secs">00</span><span class="label">Segundo</span></div>
+                </div>
+
+                <!-- Botón de acción principal -->
+                <button class="btn-capsule" onclick="goToScreen(2)" style="margin-top: 0; width: 100%; max-width: 380px; padding: 14px 0; font-size: 0.95rem; font-weight: 500; animation: giftHeartbeat 1.8s infinite ease-in-out;">
+                    💌 Te enviaron una carta 💌
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- === PANTALLA 2: CAJA REGALO Y FOTOS POLAROID === -->
+        <div class="screen" id="screen2" style="max-width: 950px; width: 100%;">
+
+        <p class="small-tag">🥹 Un pequeño detalle para Ti 🥹</p>
+        
+        <div class="gift-wrapper">
+            <img src="https://i.pinimg.com/originals/c1/61/b8/c161b838b522432ec1fcb4c7edb3492e.gif" alt="Hámster entregando regalo" class="hamster-gift-icon" style="margin-top: 70px;">
+            <div class="polaroid p1"><img src="https://i.ibb.co/JFWk3K7D/Whats-App-Image-2026-09-14-at-1-54-22-AM.jpg" alt="Foto 1"></div>
+            <div class="polaroid p2"><img src="https://i.ibb.co/nsFQQy0b/Whats-App-Image-2026-09-14-at-1-54-22-AM-1.jpg" alt="Foto 2"></div>
+            <div class="polaroid p3"><img src="https://i.ibb.co/ynmMjNYd/Whats-App-Image-2026-09-16-at-3-47-46-AM.jpg" alt="Foto 3"></div>
+            <div class="polaroid p4"><img src="https://i.ibb.co/kVfqqKbT/aa636fd5-a328-4d67-9b00-993b2e407668.jpg" alt="Foto 4"></div>
+        </div>
+
+              <!-- Contenedor optimizado: Frase más sutil y excelente separación vertical -->
+        <div style="margin-top: 110px; display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%;">
+            <h1 class="serif-title" style="font-size: 2.6rem; letter-spacing: 1px; text-shadow: 0 0 15px rgba(255, 230, 235, 0.15);">Gracias por cada momento juntos ✨</h1>
+            <p class="sub-message" style="margin-bottom: 5px; font-size: 1.05rem;">Creado con amor, espero te guste</p>
+            <button class="btn-capsule" onclick="goToScreen(3)" style="margin-top: 5px; padding: 12px 40px; font-size: 0.85rem;">💌 Leer la carta 💌</button>
+        </div>
+
+
+    </div>
+
+        <!-- === PANTALLA 3: CARTA CRISTALINA === -->
+    <div class="screen" id="screen3">
+        <h1 class="serif-title" style="margin-bottom: 10px;">Al fin llegó el gran día cariño 🎂</h1>
+               <div class="letter-container">
+                    <div id="letter-box" style="width: 100%; height: auto;"></div>
+
+            
+                                    <!-- CONTENEDOR SORPRESA TOTALMENTE CORREGIDO Y DESPLAZADO -->
+            <div id="secret-trigger-container" style="display: none; position: relative; top: -80px; left: 180px; margin-bottom: -50px; width: 100%; flex-direction: column; justify-content: center; align-items: center; gap: 8px; animation: fadeIn 1s ease-in-out forwards;">
+                <!-- 1. Texto perfectamente integrado al flujo de la carta -->
+                <p style="font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 1rem; text-shadow: 0 0 10px rgba(255,72,118,0.5); text-align: center; width: 100%;">¡No presiones ahí!</p>
+                
+                <!-- Envoltura horizontal estilizada -->
+                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 12px; height: 75px;">
+                    
+                    <!-- 2. Hámster GIF animado original -->
+                    <img src="https://i.ibb.co/WvVd6vfL/33974661-9f0f-4edf-9ddf-98e235443216.png" alt="Hamster Divertido" style="width: 65px; height: 65px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(255,255,255,0.15));">
+                    
+                    <!-- 3. Botón de Regalo animado real -->
+                                        <!-- 3. Botón de Regalo animado real con latido liberado -->
+                    <button onclick="goToScreen(4)" style="background: none; border: none; padding: 0; cursor: pointer; outline: none; transition: transform 0.2s ease; animation: giftHeartbeat 1.2s infinite ease-in-out; display: inline-block; vertical-align: middle;" aria-label="Abrir regalo">
+                        <img src="https://i.ibb.co/Rk1BskGc/03-39-03-19-512.gif" alt="Regalo Animado" style="width: 60px; height: 60px; transform: scaleX(1.3); display: block; filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.7));">
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+            <!-- === PANTALLA 4: CARRUSEL INMORTAL 3D PREMIUM (7 FOTOS CORREGIDO) === -->
+        <div class="screen" id="screen4" style="width: 100%; max-width: 1200px; height: 95vh; flex-direction: column; justify-content: space-between; position: relative; margin: 0 auto;">
+
+        <p class="small-tag">🌷 Desliza Tus Recuerdos 🌷</p>
+        
+        <div class="carousel-3d-container">
+            <div class="carousel-3d-track">
+                <div class="card-3d" onclick="activeIdx=0; update3DCarousel()">
+                    <img src="https://i.ibb.co/BHtwQrwB/Whats-App-Image-2026-09-16-at-3-41-47-AM-1.jpg" alt="Familia 1">
+                    <p>Te queremos NaN 💖</p>
+                </div>
+                <div class="card-3d" onclick="activeIdx=1; update3DCarousel()">
+                    <img src="https://i.ibb.co/S4DhqtXH/Whats-App-Image-2026-09-16-at-3-47-46-AM-1.jpg" alt="Familia 2">
+                    <p>Feliz 26 Antonia✨</p>
+                </div>
+                <div class="card-3d" onclick="activeIdx=2; update3DCarousel()">
+                    <img src="https://i.ibb.co/9KpCrby/Whats-App-Image-2026-09-16-at-3-41-47-AM.jpg" alt="Familia 3">
+                    <p>Un año más 🎉</p>
+                </div>
+                <div class="card-3d" onclick="activeIdx=3; update3DCarousel()">
+                    <img src="https://i.ibb.co/B2wJbrPp/Whats-App-Image-2026-09-14-at-10-03-00-AM.jpg" alt="Familia 4">
+                    <p>Feliz cumpleaños hija ❤️</p>
+                </div>
+                <div class="card-3d" onclick="activeIdx=4; update3DCarousel()">
+                    <img src="https://i.ibb.co/Q7hZGfJn/Whats-App-Image-2026-09-14-at-1-54-17-AM.jpg" alt="Familia 5">
+                    <p>Por muchos cumples más 🌟</p>
+                </div>
+                <div class="card-3d" onclick="activeIdx=5; update3DCarousel()">
+                    <img src="https://i.ibb.co/bZPv1jT/Whats-App-Image-2026-09-17-at-3-11-23-AM.jpg" alt="Familia 6">
+                    <p>Siempre Unidos 💕</p>
+                </div>
+                <div class="card-3d" onclick="activeIdx=6; update3DCarousel()">
+                    <img src="https://i.ibb.co/Mx50Tx5P/Whats-App-Image-2026-09-16-at-4-06-38-AM.jpg" alt="Nuestra Foto">
+                    <p>¡Y yo te amo con mi vida! 🥰</p>
+                </div>
+            </div>
+        </div>
+        
+                <!-- CONTENEDOR OPTIMIZADO: TAMAÑO GRANDE Y SEPARACIÓN PERFECTA DE LAS FOTOS -->
+        <div id="final-birthday-msg-container" style="opacity: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 1200px; margin-top: 50px; position: relative; z-index: 10;">
+            
+            <!-- 1. El GIF animado de Cumpleaños -->
+            <img id="final-birthday-gif" src="https://i.ibb.co/j9GTZ1y1/cumple3.gif" alt="Feliz Cumpleaños" style="width: 280px; height: auto; display: block; filter: drop-shadow(0 0 15px rgba(255,215,0,0.3)); margin-bottom: 25px;">
+            
+            <!-- BOTÓN SECRETO PARA IR A LA RULETA -->
+            <button id="btn-descubre-regalos" class="btn-capsule" onclick="goToScreen(5)" style="display: none; background: #fff; color: #0d0614; font-weight: 500; border: none; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); margin-bottom: 25px; transform: scale(1.05); animation: pulseGlow 2s infinite alternate; z-index: 12;">🎁 Descubre Tus Regalos 🎁</button>
+
+            <!-- 2. Tu jardín de flores dinámico con la flor inicial número 4 -->
+            <div id="jardin-flores" style="width: 100%; max-width: 1000px; height: 140px; background: url('https://i.ibb.co/N6Cky5sP/4.webp') bottom center/contain no-repeat; pointer-events: none; opacity: 0.95; transition: background 0.5s ease-in-out; z-index: 11;"></div>
+        </div>
+
+
+    </div>
+
+                 <!-- === PANTALLA 5: LA RULETA NEÓN DE LOS 26 REGALOS CORREGIDA Y EXPANDIDA === -->
+    <div class="screen" id="screen5" style="max-width: 1200px; width: 100%; margin: 0 auto; position: relative;">
+        
+        <p class="small-tag" style="margin-bottom: 15px; font-size: 0.85rem; letter-spacing: 5px;">✨ El Destino Elige ✨</p>
+        <h1 class="serif-title" style="font-size: 4rem; margin-bottom: 10px; letter-spacing: 1px;">Tus 26 Regalos</h1>
+        <p class="sub-message" style="margin-bottom: 35px; font-size: 1.2rem;">Presiona el botón para descubrir cuál abrirás ahora ❤️</p>
+        
+        <!-- CONTENEDOR HORIZONTAL PRINCIPAL -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 50px; width: 100%; position: relative;">
+            
+            <!-- 🐑 GIF DEL PERSONAJE: Esquinas redondeadas y alineado perfectamente a la izquierda -->
+            <div style="width: 280px; flex-shrink: 0; animation: bounce 2.5s infinite alternate ease-in-out; display: flex; justify-content: center; align-items: center; pointer-events: none;">
+                <img src="https://i.ibb.co/VYFwKpPX/Nebelschaf-art-pindown-io-1790140514.gif" alt="Personaje Suerte" style="width: 100%; height: auto; border-radius: 32px; filter: drop-shadow(0 0 35px rgba(236, 72, 153, 0.6));">
+            </div>
+
+            <!-- Contenedor expandido con animación de luces perimetrales de casino -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(236, 72, 153, 0.4); backdrop-filter: blur(16px); border-radius: 32px; padding: 50px 40px; width: 100%; max-width: 680px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; animation: casinoLights 4s infinite ease-in-out;">
+                
+                <!-- Luces de fondo ambientales duplicadas para mayor brillo neón -->
+                <div style="position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, rgba(0,0,0,0) 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;"></div>
+
+                <!-- La Frase Dinámica agrandada para que no quede perdida -->
+                <div id="frase-regalo" style="font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 1.4rem; text-shadow: 0 0 15px rgba(255,72,118,0.4); margin-bottom: 25px; min-height: 3.5rem; display: flex; align-items: center; justify-content: center; padding: 0 20px; z-index: 2; line-height: 1.4; text-align: center; transition: all 0.5s ease;">
+                    ¡Son pequeños detalles que necesitas en tu día a día 🎁!
+                </div>
+
+                <!-- El Número Gigante Dinámico imponente de 11rem -->
+                <div id="resultado-numero" style="font-family: 'Playfair Display', serif; font-size: 11rem; color: #fff6f8; text-shadow: 0 0 45px rgba(236, 72, 153, 0.9); font-weight: bold; line-height: 1; z-index: 2; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; justify-content: center; min-height: 200px; margin-bottom: 20px;">
+                    ?
+                </div>
+                
+                <!-- Contador de regalos restantes optimizado -->
+                <div id="contador-restante" style="background: rgba(236, 72, 153, 0.15); border: 1px solid rgba(236, 72, 153, 0.4); color: #fff; font-size: 0.85rem; padding: 6px 25px; border-radius: 30px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 35px; z-index: 2; font-weight: 500;">
+                    Regalos restantes: 26
+                </div>
+
+                <!-- Botón premium más ancho y llamativo -->
+                <button id="btn-generador" class="btn-capsule" onclick="iniciarRuletaDinamica()" style="margin-top: 0; width: 100%; max-width: 380px; padding: 14px 0; font-size: 0.95rem; font-weight: 500; z-index: 2; position: relative;">
+                    🍀 Girar Ruleta 🍀
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+        <!-- === PANTALLA 6: GRAN CLÍMAX FINAL - EL CORAZÓN DE RECUERDOS === -->
+    <div class="screen" id="screen6" style="width: 100%; max-width: 1200px; height: 100vh; position: relative; overflow: hidden; min-height: 600px;">
+        
+        <!-- Mensaje flotante superior -->
+        <div style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 100; width: 100%;">
+            <p class="small-tag" style="letter-spacing: 6px; margin-bottom: 10px;">💖 Eres Mi Destino Perfecto 💖</p>
+            <h1 class="serif-title" style="font-size: 3.5rem; text-shadow: 0 0 25px rgba(236, 72, 153, 0.6);">Tú eres quien hace latir mi corazón</h1>
+        </div>
+
+        <!-- Contenedor donde el script armará el corazón -->
+        <div id="contenedor-corazon-fotos" style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 550px; display: flex; justify-content: center; align-items: center; z-index: 50;"></div>
+
+        <!-- Botón de reinicio por si quiere volver a interactuar -->
+        <button class="btn-capsule" onclick="location.reload()" style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 100; font-size: 0.75rem; padding: 10px 25px; margin-top: 0;">
+            ✨ Volver a empezar ✨
+        </button>
+    </div>
+
+
+    <script>
+        let currentScreen = 1;
+
+        // === TUS FRASES PERSONALIZADAS ===
+        // Cambia lo que está entre comillas por tus verdaderos regalos
+        const listaDeFrasesRegalos = {
+        1: "Con estas ya no te veras tan peque amor 👢🤭",
+        2: "Ropa de chica ruda para la más engreída y consentida del mundo 😎🖤",
+        3: "Para que duermas hasta las 8:30 como siempre 🤭💤",
+        4: "¡Alerta de outfit bomba! Se viene algo espectacular... 🔥👗",
+        5: "Un detalle brillante...para iluminar mas tu carita 💎🥰",
+        6: "Para que esos labios bonitos... ✨💋",
+        7: "Porque sé perfectamente que uno solo nunca te va a bastar... 💄✨",
+        8: "Espero haya elegido bonitos tonos 😅💄",
+        9: "Para que sigas creando arte en tu carita... 🎨👱🏻‍♀️",
+        10: "Estos son mágicos te quitan el maquillaje y estrés laboral 🫓😂",
+        11: "Tus nuevas varitas mágicas para que te pongas más bella 🪄💖",
+        12: "Para cuando yo no esté disponible para hacerte piojito... 💆‍♀️🐙",
+        13: "No se exactamente que les haces pero siempre se te pierden 🤷🏻‍♀️🎀",
+        14: "Son suaves y esponjosas como tus lonjitas ☁️🥰",
+        15: "Muy útil para nuestras salidas a comer, o para tus baños express 😝🤣",
+        16: "Servirán para abrigarte y verte sexy a la vez 👖😉",
+        17: "Un par de destellos de luz para decorar tus orejitas... 💎👀",
+        18: "Un nuevo sabor para que esa boquita se mantenga siempre hidratada 🫦",
+        19: "Luego del cambio de look, toca cuidarlo 💇‍♀️🧪",
+        20: "Para esas cejitas perfectas que me miran feo cuando me porto mal 🤨💖",
+        21: "Para estrenas esos rulos de infarto 🙋🏼‍♀️😻",
+        22: "Una vez mencionaste que te gusto, y lo conseguí 🐱🥢",
+        23: "Para tus baños diarios 😂😂😂🧼🛁",
+        24: "Ahora tendras en orden tus cositas de belleza 🗄️💅🏼 ",
+        25: "Este es tan eterno, lindo y tierno como lo que siento por ti 🧸🌹",
+        26: "Debe ser bueno, es chiquito, pero me costó mucho conseguirlo 🌟👝😭",
+    };
+
+
+               // === MOTOR GRÁFICO MATRIX ROMÁNTICO EXCLUSIVO: PALABRAS E ÍCONOS DE CUMPLEAÑOS ===
+        window.addEventListener('DOMContentLoaded', () => {
+            const displayNumero = document.getElementById('intro-number-display');
+            const pantallaIntro = document.getElementById('intro-welcome-screen');
+            const canvasMatrix = document.getElementById('intro-matrix-canvas');
+            const ctxMatrix = canvasMatrix.getContext('2d');
+            let numeroActual = 5;
+
+            function ajustarCanvas() {
+                canvasMatrix.width = window.innerWidth;
+                canvasMatrix.height = window.innerHeight;
+            }
+            ajustarCanvas();
+
+            // ✍️ EDITA AQUÍ TU LISTA DE PALABRAS (Se mantendrán puras y limpias)
+            const palabrasMatrix = [
+                "NANCY", "TEAMO", "FELIZCUMPLEANOS", "26PRIMAVERAS", 
+                "24", "SETIEMBRE", "YZAGUIRRE", "ERESMIVIDA"
+            ];
+
+            // Íconos temáticos de amor y cumpleaños permitidos para separar las frases
+            const iconosSeparadores = ["\u2764", "\u2605", "\u2665", "\u2734"];
+
+            const tamanoFuente = 18;
+            let columnas = Math.floor(canvasMatrix.width / tamanoFuente);
+            let estadosColumnas = [];
+
+            // Genera una cadena continua para cada columna mezclando la palabra con íconos temáticos
+            function generarCadenaColumna() {
+                const palabraAleatoria = palabrasMatrix[Math.floor(Math.random() * palabrasMatrix.length)];
+                const iconoAleatorio = iconosSeparadores[Math.floor(Math.random() * iconosSeparadores.length)];
+                // Estructura limpia: Frase + Espacio + Ícono + Espacio
+                return palabraAleatoria + "    " + iconoAleatorio + "    ";
+            }
+
+            function inicializarColumnas() {
+                columnas = Math.floor(canvasMatrix.width / tamanoFuente);
+                estadosColumnas = [];
+                for (let i = 0; i < columnas; i++) {
+                    estadosColumnas.push({
+                        y: Math.random() * -40, // Caída en ráfagas escalonadas
+                        texto: generarCadenaColumna(),
+                        indiceLetra: 0
+                    });
+                }
+            }
+            inicializarColumnas();
+
+            window.addEventListener('resize', () => {
+                ajustarCanvas();
+                inicializarColumnas();
+            });
+
+            function dibujarMatrix() {
+                ctxMatrix.fillStyle = "rgba(13, 6, 20, 0.12)";
+                ctxMatrix.fillRect(0, 0, canvasMatrix.width, canvasMatrix.height);
+
+                ctxMatrix.font = "900 " + tamanoFuente + "px monospace";
+
+                for (let i = 0; i < estadosColumnas.length; i++) {
+                    let col = estadosColumnas[i];
+                    
+                    let letra = col.texto.charAt(col.indiceLetra % col.texto.length);
+
+                    // Brillo blanco rosado para la punta de la gota, rosa neón para el cuerpo
+                    if (Math.random() > 0.96) {
+                        ctxMatrix.fillStyle = "#fff0f5";
+                    } else {
+                        ctxMatrix.fillStyle = "#ec4899";
+                    }
+
+                    ctxMatrix.fillText(letra, i * tamanoFuente, col.y * tamanoFuente);
+
+                    // Al llegar al borde inferior, se le asigna una nueva palabra e ícono limpio al hilo
+                    if (col.y * tamanoFuente > canvasMatrix.height && Math.random() > 0.975) {
+                        col.y = 0;
+                        col.texto = generarCadenaColumna();
+                    }
+
+                    col.y++;
+                    col.indiceLetra++;
+                }
+            }
+
+            const intervaloMatrix = setInterval(dibujarMatrix, 45);
+
+            const cronometroIntro = setInterval(() => {
+                numeroActual--;
+                if (numeroActual > 0) {
+                    displayNumero.textContent = numeroActual;
+                } else {
+                    clearInterval(cronometroIntro);
+                    clearInterval(intervaloMatrix);
+                    pantallaIntro.style.opacity = '0';
+                    pantallaIntro.style.pointerEvents = 'none';
+                    setTimeout(() => {
+                        pantallaIntro.remove();
+                        document.getElementById('screen1').classList.add('active');
+                    }, 800);
+                }
+            }, 1000);
+        });
+
+           // === 1. CONTROL DE NAVEGACIÓN ENTRE INTERFACES Y AUDIO CORREGIDO ===
+function goToScreen(screenNumber) {
+    currentScreen = screenNumber;
+
+    // INYECCIÓN DIRECTA DE TU MÚSICA DESDE YOUTUBE (BURLA EL BLOQUEO DE NAVEGADORES)
+    if (screenNumber >= 2) {
+        if (!document.getElementById('bg-music-yt')) {
+            const iframeMusica = document.createElement('iframe');
+            iframeMusica.id = 'bg-music-yt';
+            
+            // Dirección unificada con mute de origen para forzar la carga oculta sin bloqueos
+            iframeMusica.src = "https://youtube.com/embed/qAEUdBKAFew?autoplay=1&mute=1&loop=1&playlist=qAEUdBKAFew&playsinline=1&controls=0&rel=0&enablejsapi=1";
+
+            iframeMusica.width = '1';
+            iframeMusica.height = '1';
+            iframeMusica.frameBorder = '0';
+            iframeMusica.allow = 'autoplay; encrypted-media';
+
+            // Estilos ocultos estables
+            iframeMusica.style.position = 'fixed';
+            iframeMusica.style.width = '1px';
+            iframeMusica.style.height = '1px';
+            iframeMusica.style.opacity = '0';
+            iframeMusica.style.pointerEvents = 'none';
+            iframeMusica.style.left = '-10px';
+            iframeMusica.style.top = '-10px';
+
+            document.body.appendChild(iframeMusica);
+
+            // EVENTO MÁGICO: En cuanto el iframe carga en segundo plano, le quita el silencio al instante
+            iframeMusica.onload = function() {
+                setTimeout(() => {
+                    iframeMusica.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                    iframeMusica.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                }, 100);
+            };
+        }
+    }
+
+    // ==========================================
+    // CAMBIO DE PANTALLA
+    // ==========================================
+    document.querySelectorAll('.screen').forEach(s => {
+        s.classList.remove('active');
+    });
+
+    document.getElementById('screen' + screenNumber).classList.add('active');
+
+    // ==========================================
+    // ANIMACIÓN DE LA CARTA
+    // ==========================================
+    if (screenNumber === 3) {
+        startLetterAnimation();
+    }
+}
+
+
+        // === 2. GENERADOR DE CORAZONES EN EL FONDO ===
+        const heartsBg = document.getElementById('hearts-bg');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 4 + 8) + 's';
+            heart.style.fontSize = (Math.random() * 8 + 12) + 'px';
+            heartsBg.appendChild(heart);
+            
+            setTimeout(() => { heart.remove(); }, 7000);
+        }
+        setInterval(createHeart, 300);
+
+                // === 3. SISTEMA DE CUENTA REGRESIVA FIJA (24 de Setiembre de 2026 a las 9:00 PM) ===
+       function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            
+            // Creamos la fecha objetivo para el año actual
+            let birthdayTarget = new Date(`September 24, ${currentYear} 21:00:00`);
+
+            // Si la fecha de este año ya pasó, calculamos automáticamente para el próximo año
+            if (birthdayTarget - now <= 0) {
+                birthdayTarget = new Date(`September 24, ${currentYear + 1} 21:00:00`);
+            }
+
+            const diff = birthdayTarget - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = d < 10 ? '0' + d : d;
+            document.getElementById('hours').textContent = h < 10 ? '0' + h : h;
+            document.getElementById('mins').textContent = m < 10 ? '0' + m : m;
+            document.getElementById('secs').textContent = s < 10 ? '0' + s : s;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // === 4. TEXTO DE LA CARTA (APARICIÓN LÍNEA POR LÍNEA) ===
+        const letterParagraphs = [
+            "Hoy cumples un año más de vida amor 🥳, hace 26 primaveras una pequeña niña nació, una personita chiquita pero de grandes sentimientos, sé que has pasado por muchas cosas buenas y malas a lo largo de tu vida, pero supiste afrontar cada obstáculo que se te presentaba, y hasta ahora lo sigues haciendo 💪🏻.",
+            "La verdad te admiro mucho porque veo día a día todo lo que te esfuerzas por salir adelante 🥹, te he visto reir, te he visto moquear, hasta te he visto tomar cosas lácteas y sus consecuencias jaja 🤣, pero sabes...",
+            "Estoy feliz de haber encontrado una personita tan única, especial y maravillosa como tú, mi amor 🥰. Gracias por permitirme estar a tu lado, por dejarme conocerte cada día un poquito más y por regalarme tantos momentos que guardo en mi corazón... ✨",
+            "Te amo mucho, mi pequeña. ✨ Espero poder seguir acompañándote en cada nueva primavera, celebrando tus logros, apoyándote en los momentos difíciles y, sobre todo, haciéndote sonreír siempre que pueda.",
+            "Con Amor 💖",
+            "Leonel"
+        ];
+
+        const letterBox = document.getElementById('letter-box');
+        
+        letterBox.style.whiteSpace = "pre-wrap"; 
+        letterBox.style.lineHeight = "2";
+        letterBox.style.textAlign = "justify";
+        letterBox.style.position = "relative";
+        
+        const textoCompleto = letterParagraphs.join("\n\n");
+        
+        let indiceCaracter = 0;
+        const velocidadEscritura = 50; 
+
+        letterBox.innerHTML = '<span id="typing-text"></span><span class="cursor-maquina">|</span>';
+        const contenedorTexto = document.getElementById('typing-text');
+
+        const estilosCursor = document.createElement('style');
+        estilosCursor.innerHTML = `
+            .cursor-maquina {
+                color: #ec4899; 
+                font-weight: bold;
+                margin-left: 2px;
+                animation: parpadeo 0.7s infinite;
+            }
+            @keyframes parpadeo {
+                0%, 100% { opacity: 0; }
+                50% { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(estilosCursor);
+
+                function startLetterAnimation() {
+            // Selecciona el contenedor de la carta que tiene habilitado el scroll
+            const contenedorCartaScroll = document.querySelector('.letter-container');
+
+            if (indiceCaracter < textoCompleto.length) {
+                contenedorTexto.textContent += textoCompleto.charAt(indiceCaracter);
+                indiceCaracter++;
+                setTimeout(startLetterAnimation, velocidadEscritura);
+                
+                // Fuerza a la carta a bajar sola en automático siguiendo la punta del texto
+                if (contenedorCartaScroll) {
+                    contenedorCartaScroll.scrollTop = contenedorCartaScroll.scrollHeight;
+                }
+            } else {
+                const cursor = document.querySelector('.cursor-maquina');
+                if (cursor) cursor.style.animation = "none";
+                
+                // Muestra el hámster y el regalo de forma sincronizada al final de todo el texto
+                const secretBox = document.getElementById('secret-trigger-container');
+                if (secretBox) {
+                    secretBox.style.display = 'flex';
+                    // Un pequeño ajuste extra para empujar el scroll al hámster de forma automática
+                    setTimeout(() => {
+                        if (contenedorCartaScroll) {
+                            contenedorCartaScroll.scrollTop = contenedorCartaScroll.scrollHeight;
+                        }
+                    }, 50);
+                }
+            }
+        }
+
+    
+    const canvas = document.getElementById('fw-canvas');
+const ctx = canvas.getContext('2d');
+let fireworks = [], particles = [];
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+window.addEventListener('resize', resizeCanvas); resizeCanvas();
+
+class Firework {
+    constructor(sx, sy, tx, ty, color, isMassive) {
+        this.x = sx; this.y = sy; this.tx = tx; this.ty = ty;
+        this.angle = Math.atan2(ty - sy, tx - sx); this.speed = isMassive ? 10 : 6;
+        this.color = color; this.isMassive = isMassive; this.done = false;
+    }
+    update() {
+        this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed;
+        if (this.y <= this.ty) { this.done = true; createParticles(this.tx, this.ty, this.color, this.isMassive); }
+    }
+    draw() { ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(this.x, this.y - 5); ctx.strokeStyle = this.color; ctx.stroke(); }
+}
+class Particle {
+    constructor(x, y, color, isMassive) {
+        this.x = x; this.y = y; this.angle = Math.random() * Math.PI * 2;
+        this.speed = Math.random() * (isMassive ? 8 : 6.5) + 1; this.alpha = 1; this.decay = Math.random() * 0.02 + 0.01; this.color = color;
+    }
+    update() { this.speed *= 0.95; this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed + 0.2; this.alpha -= this.decay; }
+    draw() { ctx.fillStyle = this.color; ctx.globalAlpha = this.alpha; ctx.fillRect(this.x, this.y, 2, 2); ctx.globalAlpha = 1; }
+}
+function createParticles(x, y, color, isMassive) { let c = isMassive ? 100 : 70; while(c--) particles.push(new Particle(x, y, color, isMassive)); }
+
+function loop() {
+    requestAnimationFrame(loop); ctx.clearRect(0, 0, canvas.width, canvas.height);
+    fireworks.forEach((f, i) => { f.update(); f.draw(); if(f.done) fireworks.splice(i, 1); });
+    particles.forEach((p, i) => { p.update(); p.draw(); if(p.alpha <= 0) particles.splice(i, 1); });
+
+       // Explosiones suaves en la introducción (Pantallas 1 y 2)
+    if ((currentScreen === 1 || currentScreen === 2) && Math.random() < 0.03) {
+        fireworks.push(new Firework(Math.random() * canvas.width, canvas.height, Math.random() * canvas.width, Math.random() * (canvas.height/2), '#ec4899', false));
+    } 
+    // MODO MASIVO: Se activa en la Pantalla 3 y continúa por el resto de interfaces (4, 5 y 6)
+    else if (currentScreen >= 3 && Math.random() < 0.07) {
+        let colors = ['#ff007f', '#9d00ff', '#ffd700', '#00ffff', '#ec4899'];
+        fireworks.push(new Firework(
+            Math.random() * canvas.width, 
+            canvas.height, 
+            Math.random() * canvas.width, 
+            Math.random() * (canvas.height / 3) + 50, 
+            colors[Math.floor(Math.random() * colors.length)], 
+            true
+        ));
+    }
+
+}
+loop();
+
+                   // === 6. MOTOR MATEMÁTICO DEL CARRUSEL 3D COVERFLOW (7 FOTOS CON TUS ENLACES) ===
+        let activeIdx = 3; // Inicializa en la foto familiar central (tarjeta 4)
+        const totalCards = 7;
+
+        // === LISTA DE FLORES PARA CADA UNA DE LAS 7 IMÁGENES ===
+        const listaDeFlores = [
+            "https://i.ibb.co/chk1NrzJ/E.png", // Flor para Foto 1
+            "https://i.ibb.co/WNHXysL9/K.png", // Flor para Foto 2
+            "https://i.ibb.co/0pXXGy5t/D.png", // Flor para Foto 3
+            "https://i.ibb.co/8LJdJFyH/A.png", // Flor para Foto 4
+            "https://i.ibb.co/KcC24j6Q/F.png", // Flor para Foto 5
+            "https://i.ibb.co/FkQkK2jt/descarga.png", // Flor para Foto 6
+            "https://i.ibb.co/B7Hgbct/7.webp"  // Flor para Foto 7
+        ];
+
+
+        function update3DCarousel() {
+            const cards = document.querySelectorAll('.card-3d');
+            // Distancia de separación adaptada de forma limpia según el tamaño de la pantalla
+            const radius = 190;
+
+            cards.forEach((card, i) => {
+                const offset = i - activeIdx;
+                
+                // Foto activa en primer plano centrado
+                if (offset === 0) {
+                    card.style.transform = `translateX(0px) translateZ(120px) rotateY(0deg)`;
+                    card.style.opacity = '1';
+                    card.style.filter = 'none';
+                    card.style.zIndex = '30';
+                } 
+                // Fotos inclinadas hacia la derecha
+                else if (offset > 0) {
+                    card.style.transform = `translateX(${offset * radius}px) translateZ(0px) rotateY(-35deg)`;
+                    card.style.opacity = offset === 1 ? '0.7' : offset === 2 ? '0.35' : '0';
+                    card.style.filter = 'blur(1px)';
+                    card.style.zIndex = `${30 - offset}`;
+                } 
+                // Fotos inclinadas hacia la izquierda
+                else {
+                    card.style.transform = `translateX(${offset * radius}px) translateZ(0px) rotateY(35deg)`;
+                    card.style.opacity = offset === -1 ? '0.7' : offset === -2 ? '0.35' : '0';
+                    card.style.filter = 'blur(1px)';
+                    card.style.zIndex = `${30 + offset}`;
+                }
+            });
+
+                        // CLÍMAX FINAL: Cambio dinámico de flores y manejo del botón
+            const contenedorFinal = document.getElementById('final-birthday-msg-container');
+            const botonRegalos = document.getElementById('btn-descubre-regalos');
+            const jardinFlores = document.getElementById('jardin-flores');
+
+            // 1. Mostrar el Feliz Cumpleaños y las flores de inmediato junto a las fotos
+            if (contenedorFinal) {
+                contenedorFinal.style.transition = "opacity 1.2s ease-in-out";
+                contenedorFinal.style.opacity = '1';
+            }
+
+            // 2. Cambiar la flor automáticamente según la foto en pantalla
+            if (jardinFlores && listaDeFlores[activeIdx]) {
+                jardinFlores.style.backgroundImage = `url('${listaDeFlores[activeIdx]}')`;
+            }
+
+            // 3. Mostrar el botón "Descubre Tus Regalos" ÚNICAMENTE en la foto 7 (índice 6)
+            if (botonRegalos) {
+                if (activeIdx === 6) {
+                    currentScreen = 3; // Activa el modo masivo de fuegos artificiales
+                    botonRegalos.style.display = 'inline-block';
+                } else {
+                    botonRegalos.style.display = 'none'; // Se oculta al regresar
+                }
+            }
+
+
+        }
+
+                function moveCarousel(direction) {
+            activeIdx += direction;
+            if (activeIdx < 0) activeIdx = 0;
+            if (activeIdx >= totalCards) activeIdx = totalCards - 1;
+            update3DCarousel();
+        }
+
+        // CONTROL POR TECLADO PARA NAVEGAR EN PC
+        window.addEventListener('keydown', (e) => {
+            if (currentScreen === 4) {
+                if (e.key === "ArrowRight") moveCarousel(1);
+                if (e.key === "ArrowLeft") moveCarousel(-1);
+            }
+        });
+
+                  // Intercepta la navegación global para inicializar el carrusel y los clics de forma fluida
+        const funcionOriginalNavegacion = goToScreen;
+        goToScreen = function(screenNumber) {
+            funcionOriginalNavegacion(screenNumber);
+            if (screenNumber === 4) {
+                currentScreen = 4;
+                // Forzado de renderizado inmediato
+                update3DCarousel(); 
+                
+                setTimeout(() => {
+                    update3DCarousel();
+                    // Configura los clics dinámicos de forma segura aquí adentro cuando las fotos ya existen
+                    document.querySelectorAll('.card-3d').forEach((card, index) => {
+                        card.setAttribute('onclick', `activeIdx=${index}; update3DCarousel();`);
+                    });
+                }, 50);
+            }
+        }
+
+
+        // === 7. MOTOR MATEMÁTICO Y VISUAL DE LA RULETA DE 26 REGALOS (SIN REPETIR) ===
+        let numerosDisponibles = Array.from({ length: 26 }, (_, i) => i + 1);
+
+        // Algoritmo Fisher-Yates para barajar el mazo de números una sola vez al cargar la web
+        function barajarNumeros(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        barajarNumeros(numerosDisponibles);
+
+        let ruletaGirando = false;
+
+              function iniciarRuletaDinamica() {
+            // Si la ruleta está en movimiento, bloquea clicks accidentales
+            if (ruletaGirando) return; 
+            
+            // Al terminar los 26 regalos saltará al corazón de recuerdos automáticamente
+            if (numerosDisponibles.length === 0) {
+                // Transición fluida al clímax final
+                goToScreen(6);
+                generarCorazonDeFotos();
+                return;
+            }
+
+            ruletaGirando = true;
+            const elNumero = document.getElementById("resultado-numero");
+            const elBoton = document.getElementById("btn-generador");
+            const elContador = document.getElementById("contador-restante");
+            
+            elBoton.disabled = true;
+            elBoton.style.opacity = "0.5";
+            elBoton.textContent = "Buscando...";
+
+            // Extrae de forma segura el último número de nuestra lista barajada
+            const numeroGanadorDefinitivo = numerosDisponibles.pop();
+
+            let velocidadCambio = 40; // Velocidad inicial de vértigo (milisegundos)
+            let duracionGiroTotal = 1000; // Tiempo total de suspenso (2.2 segundos)
+            let tiempoTranscurrido = 0;
+
+            function cicloEfectoGiro() {
+                // Genera números aleatorios visuales rápidos para dar el efecto de casino digital
+                elNumero.textContent = Math.floor(Math.random() * 26) + 1;
+                
+                // Pequeña distorsión física y cambio de opacidad dinámico por frame
+                elNumero.style.transform = `scale(${Math.random() * 0.1 + 0.95}) rotate(${Math.random() * 4 - 2}deg)`;
+                elNumero.style.opacity = "0.9";
+
+                tiempoTranscurrido += velocidadCambio;
+
+                if (tiempoTranscurrido < duracionGiroTotal) {
+                    // Rompe la velocidad gradualmente cuando pasa el 60% del tiempo (Efecto freno físico)
+                    if (tiempoTranscurrido > duracionGiroTotal * 0.6) {
+                        velocidadCambio += 30; 
+                    }
+                    setTimeout(cicloEfectoGiro, velocidadCambio);
+                } else {
+                    // --- DETENCIÓN DEFINITIVA Y ANIMACIÓN DE LA FRASE ---
+                    elNumero.textContent = numeroGanadorDefinitivo;
+                    elNumero.style.transform = "scale(1.25) rotate(0deg)";
+                    elNumero.style.opacity = "1";
+
+                    // Efecto: Desvanece la frase vieja y aparece la nueva suavemente
+                    const laFrase = document.getElementById("frase-regalo");
+                    if (laFrase) {
+                        laFrase.style.opacity = "0";
+                        setTimeout(() => {
+                            laFrase.textContent = listaDeFrasesRegalos[numeroGanadorDefinitivo] || "¡Un regalo especial para ti! 🎁";
+                            laFrase.style.opacity = "1";
+                        }, 200);
+                    }
+                    
+                    // Actualiza el marcador de regalos pendientes
+                    elContador.textContent = `Regalos restantes: ${numerosDisponibles.length}`;
+                    
+                    // Activa fuegos artificiales masivos usando tu canvas integrado
+                    if (typeof createParticles === 'function') {
+                        createParticles(window.innerWidth / 2, window.innerHeight / 2, '#ec4899', true);
+                        setTimeout(() => createParticles(window.innerWidth * 0.3, window.innerHeight * 0.4, '#9d00ff', false), 200);
+                        setTimeout(() => createParticles(window.innerWidth * 0.7, window.innerHeight * 0.4, '#ffd700', false), 400);
+                    }
+
+                    // Reactiva el botón evaluando si quedan más elementos o es el final
+                    setTimeout(() => {
+                        ruletaGirando = false;
+                        elBoton.disabled = false;
+                        elBoton.style.opacity = "1";
+                        elNumero.style.transform = "scale(1)";
+
+
+
+
+
+                        // CONDICIÓN MÁGICA: Evalúa si era el último regalo abierto
+                        if (numerosDisponibles.length === 0) {
+                            // Muestra de inmediato que se completó el juego
+                            elContador.textContent = "¡Completaste tus regalos!";
+                            elBoton.textContent = "Buscando sorpresa final...";
+                            elBoton.disabled = true;
+                            elBoton.style.opacity = "0.5";
+
+                            // EFECTO SUSPENSO: Espera 2.5 segundos (2500ms) antes de mostrar tu foto y tu frase
+                            setTimeout(() => {
+                                // 1. Cambia el número por tu foto personalizada con animación fluida
+                                elNumero.innerHTML = `<img src="https://i.ibb.co/b5Y0gPVJ/Whats-App-Image-2026-09-14-at-1-54-17-AM-1.jpg" style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 25px #ec4899; border: 2px solid #fff; animation: fadeIn 1s ease-in-out forwards;">`;
+                                
+                                // 2. Modifica el texto del botón final y lo reactiva
+                                elBoton.disabled = false;
+                                elBoton.style.opacity = "1";
+                                elBoton.textContent = "✨ Click para último detalle ✨";
+
+                                // 3. Cambia la frase de arriba por tu mensaje personalizado final
+                                const laFrase = document.getElementById("frase-regalo");
+                                if (laFrase) {
+                                    laFrase.style.opacity = "0";
+                                    setTimeout(() => {
+                                        laFrase.textContent = "Holiii tía 🙊, voy por tus dulces 🍬🍫😜";
+                                        laFrase.style.opacity = "1";
+                                    }, 200);
+                                }
+                            }, 2500); // 👈 Aquí modificas los milisegundos de espera si quieres más o menos suspenso
+
+                        } else {
+
+                            elBoton.textContent = "🍀 Girar de Nuevo 🍀";
+                        }
+                    }, 600);
+                }
+            }
+
+            cicloEfectoGiro();
+        }
+
+        // ===============================================================================
+        // ¡AQUÍ LO PEGAS! (Justo antes de que termine el script de la página)
+        // === MOTOR VISUAL: EXPLOSIÓN Y ACOMODO EN CORAZÓN DE RECUERDOS (TIKTOK STYLE) ===
+        function generarCorazonDeFotos() {
+            const contenedor = document.getElementById('contenedor-corazon-fotos');
+            contenedor.innerHTML = ''; 
+
+            const misFotosGaleria = [
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg",
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg",
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg",
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg",
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg",
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg",
+                "https://i.ibb.co/N6KtRttj/Whats-App-Image-2026-09-14-at-1-54-21-AM.jpg"
+            ];
+
+            const totalDeFotosEnCorazon = 24; 
+            
+            for (let i = 0; i < totalDeFotosEnCorazon; i++) {
+                const fotoCard = document.createElement('div');
+                
+                fotoCard.style.position = 'absolute';
+                fotoCard.style.width = '100px';
+                fotoCard.style.height = '100px';
+                fotoCard.style.background = '#ffffff';
+                fotoCard.style.padding = '5px';
+                fotoCard.style.borderRadius = '16px';
+                fotoCard.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(236, 72, 153, 0.4)';
+                fotoCard.style.overflow = 'hidden';
+                
+                fotoCard.style.left = 'calc(50% - 50px)';
+                fotoCard.style.top = 'calc(50% - 50px)';
+                fotoCard.style.transform = `scale(0) rotate(${Math.random() * 60 - 30}deg)`;
+                fotoCard.style.opacity = '0';
+                fotoCard.style.transition = 'all 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+
+                const img = document.createElement('img');
+                img.src = misFotosGaleria[i % misFotosGaleria.length]; 
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '12px';
+                
+                fotoCard.appendChild(img);
+                contenedor.appendChild(fotoCard);
+
+                const t = (i / totalDeFotosEnCorazon) * Math.PI * 2;
+                const escalaX = 14; 
+                const escalaY = 12; 
+                
+                const posX = 16 * Math.pow(Math.sin(t), 3) * escalaX;
+                const posY = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t)) * escalaY;
+
+                        setTimeout(() => {
+                    fotoCard.style.left = `calc(50% - 50px + ${posX}px)`;
+                    fotoCard.style.top = `calc(50% - 50px + ${posY}px)`;
+                    fotoCard.style.transform = `scale(1) rotate(${Math.random() * 16 - 8}deg)`;
+                    fotoCard.style.opacity = '1';
+                }, 100 + (i * 45));
+            }
+        }
+
+        // Activa el latido continuo en el contenedor un segundo después de que se abran las fotos
+        setTimeout(() => {
+            const contenedorCorazon = document.getElementById('contenedor-corazon-fotos');
+            if (contenedorCorazon) {
+                contenedorCorazon.style.animation = 'corazonLatido 1.6s infinite ease-in-out';
+            }
+        }, 1500);
+
+    </script>
+
+</body>
+</html>
